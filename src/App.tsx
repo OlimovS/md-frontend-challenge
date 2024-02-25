@@ -3,11 +3,11 @@ import { useState } from "react";
 import { useQuery } from "react-query";
 // custom created (components | functions | css) imports
 import UserProfile from "./components/UserProfile";
-import { getUserEmails } from "./api";
-import { USER_EMAILS_QUERY_KEY } from "./constants";
-import { IUserswithIdandEmail } from "./types";
+import { getUserEmails } from "./helpers/api";
+import { USER_EMAILS_QUERY_KEY } from "./helpers/constants";
+import { IUserswithIdandEmail } from "./helpers/types";
 import "./App.css";
-import { get_error_message } from "./utils";
+import { get_error_message } from "./helpers/utils";
 
 // primereact's type for select option did not work.
 // I had to write it.

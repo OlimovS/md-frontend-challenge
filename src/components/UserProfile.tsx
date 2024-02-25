@@ -9,10 +9,10 @@ import { InputTextarea } from "primereact/inputtextarea";
 import { Image } from "primereact/image";
 import { Button } from "primereact/button";
 // custom
-import { IUserEditableData, IUserPublicData } from "../types";
-import { get_error_message, get_user_editable_data } from "../utils";
-import { USER_EMAILS_QUERY_KEY, USER_QUERY_KEY } from "../constants";
-import { editUserData, getUserData } from "../api";
+import { IUserEditableData, IUserPublicData } from "../helpers/types";
+import { get_error_message, get_user_editable_data } from "../helpers/utils";
+import { USER_EMAILS_QUERY_KEY, USER_QUERY_KEY } from "../helpers/constants";
+import { editUserData, getUserData } from "../helpers/api";
 
 interface IUserProfileProps {
   id: string;

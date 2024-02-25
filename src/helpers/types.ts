@@ -25,12 +25,3 @@ export type IUserEditableDataWithId = IUserEditableData &
   Pick<IUserPublicData, "id">;
 
 export type IUserswithIdandEmail = Array<Pick<IUserPublicData, "id" | "email">>;
-
-/*
- * Auth types
- */
-
-export interface ILoginCredentials {
-  email: string;
-  password: string;
-}

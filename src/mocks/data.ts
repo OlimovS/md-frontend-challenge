@@ -1,4 +1,4 @@
-import { IUserFullData } from "../types";
+import { IUserFullData } from "../helpers/types";
 
 export const users: Array<IUserFullData> = [
   {

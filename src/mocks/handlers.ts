@@ -1,38 +1,11 @@
 import { http, HttpHandler, HttpResponse } from "msw";
 import { users } from "./data";
-import { is_password_correct, jwt_sign } from "./auth";
-import { ILoginCredentials, IUserEditableDataWithId } from "../types";
-import { get_user_public_data } from "../utils";
+import { IUserEditableDataWithId } from "../helpers/types";
+import { get_user_public_data } from "../helpers/utils";
 
 export const handlers: Array<HttpHandler> = [
   http.get("/api/users", () => {
     return HttpResponse.json(users.map((u) => ({ email: u.email, id: u.id })));
-  }),
-
-  http.get("api/login", async (resolver) => {
-    const userCredentials =
-      (await resolver.request.json()) as ILoginCredentials;
-
-    // are user credentials provided ?
-    if (!(userCredentials.password && userCredentials.email)) {
-      return new HttpResponse("Provide email and password!", { status: 400 });
-    }
-
-    // does the user exist in the db ?
-    const user = users.find((u) => u.email === userCredentials.email);
-
-    // the user does not exist in the db
-    if (!user) {
-      return new HttpResponse("No user found", { status: 404 });
-    }
-
-    // if user password is correct, sign jwt token
-    if (is_password_correct(userCredentials.password, user.hash)) {
-      return new HttpResponse(jwt_sign(), { status: 200 });
-    }
-
-    // if password is not correct
-    return new HttpResponse("Wrong credentials!", { status: 401 });
   }),
 
   http.get("/api/user/:id", async (resolver) => {
