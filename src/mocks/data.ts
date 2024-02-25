@@ -3,7 +3,7 @@ import { IUserFullData } from "../types";
 export const users: Array<IUserFullData> = [
   {
     id: "f5gH8jK2",
-    name: "christoffer",
+    name: "Christoffer",
     email: "christoffer.christiansen@example.com",
     picture: "men/0.jpg",
     bio: "Enthusiastic about technology and always eager to learn something new.",
@@ -12,7 +12,7 @@ export const users: Array<IUserFullData> = [
   },
   {
     id: "l9sF2dP6",
-    name: "valtteri",
+    name: "Valtteri",
     email: "valtteri.pulkkinen@example.com",
     picture: "men/1.jpg",
     bio: "A nature lover who enjoys hiking and exploring the outdoors.",
@@ -21,7 +21,7 @@ export const users: Array<IUserFullData> = [
   },
   {
     id: "a3zR5xM8",
-    name: "todd",
+    name: "Todd",
     email: "todd.beck@example.com",
     picture: "men/2.jpg",
     bio: "Passionate about photography and capturing life's precious moments.",
@@ -30,7 +30,7 @@ export const users: Array<IUserFullData> = [
   },
   {
     id: "b7hD3gN9",
-    name: "jimmie",
+    name: "Jimmie",
     email: "jimmie.simmons@example.com",
     picture: "men/3.jpg",
     bio: "Music enthusiast who enjoys playing guitar and composing songs.",
@@ -39,7 +39,7 @@ export const users: Array<IUserFullData> = [
   },
   {
     id: "s8mJ2nF4",
-    name: "benedikt",
+    name: "Benedikt",
     email: "benedikt.hein@example.com",
     picture: "men/4.jpg",
     bio: "A bookworm and avid reader, always exploring new realms through literature.",
@@ -48,7 +48,7 @@ export const users: Array<IUserFullData> = [
   },
   {
     id: "t6wE8jU7",
-    name: "aloïs",
+    name: "Aloïs",
     email: "aloïs.moulin@example.com",
     picture: "men/5.jpg",
     bio: "Foodie and amateur chef, constantly experimenting with flavors in the kitchen.",
@@ -57,7 +57,7 @@ export const users: Array<IUserFullData> = [
   },
   {
     id: "j4kL9qW2",
-    name: "noah",
+    name: "Noah",
     email: "noah.smith@example.com",
     picture: "men/6.jpg",
     bio: "Adventure seeker who loves adrenaline-fueled activities like skydiving and bungee jumping.",
@@ -66,7 +66,7 @@ export const users: Array<IUserFullData> = [
   },
   {
     id: "p7tS3fU5",
-    name: "noah",
+    name: "Dupont",
     email: "noah.dupont@example.com",
     picture: "men/7.jpg",
     bio: "Avid traveler and explorer, always seeking new cultures and experiences.",
@@ -75,7 +75,7 @@ export const users: Array<IUserFullData> = [
   },
   {
     id: "r2wE9uY5",
-    name: "necati",
+    name: "Necati",
     email: "necati.nalbantoğlu@example.com",
     picture: "men/8.jpg",
     bio: "Tech geek with a passion for coding and building innovative solutions.",
@@ -84,7 +84,7 @@ export const users: Array<IUserFullData> = [
   },
   {
     id: "h5bM8jK3",
-    name: "arnold",
+    name: "Arnold",
     email: "arnold.gardner@example.com",
     picture: "men/9.jpg",
     bio: "Fitness enthusiast and gym buff, dedicated to living a healthy lifestyle.",

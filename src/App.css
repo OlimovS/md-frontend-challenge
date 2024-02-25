@@ -1,0 +1,44 @@
+.user_select {
+  max-width: 100%;
+  width: 400px;
+}
+
+.profile_picture {
+  border-radius: 50%;
+}
+
+.profile_view {
+  max-width: 100%;
+  width: 400px;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 10px;
+}
+
+.form_field {
+  width: 100%;
+  margin-bottom: 5px;
+}
+
+.form_field_wrap {
+  margin-bottom: 10px;
+}
+
+.field_label {
+  display: block;
+  margin-bottom: 4px;
+}
+
+.form_field_error {
+  color: rgb(189, 22, 22);
+  display: block;
+  margin-top: 1px;
+  margin-bottom: 5px;
+  font-size: 0.8em;
+}
+
+.edit_form_modal_actions {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}

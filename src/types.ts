@@ -19,10 +19,12 @@ export interface IUserPublicData {
   bio: string;
 }
 
-export type IUserEditableData = Omit<IUserPublicData, "id">;
+export type IUserEditableData = Omit<IUserPublicData, "id" | "picture">;
 
 export type IUserEditableDataWithId = IUserEditableData &
   Pick<IUserPublicData, "id">;
+
+export type IUserswithIdandEmail = Array<Pick<IUserPublicData, "id" | "email">>;
 
 /*
  * Auth types

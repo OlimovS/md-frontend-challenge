@@ -6,7 +6,7 @@ import { get_user_public_data } from "../utils";
 
 export const handlers: Array<HttpHandler> = [
   http.get("/api/users", () => {
-    return HttpResponse.json(users);
+    return HttpResponse.json(users.map((u) => ({ email: u.email, id: u.id })));
   }),
 
   http.get("api/login", async (resolver) => {
@@ -33,6 +33,16 @@ export const handlers: Array<HttpHandler> = [
 
     // if password is not correct
     return new HttpResponse("Wrong credentials!", { status: 401 });
+  }),
+
+  http.get("/api/user/:id", async (resolver) => {
+    const { id } = resolver.params;
+
+    const user = users.find((u) => u.id === id);
+    // if no user is found
+    if (!user) return new HttpResponse("User not found!", { status: 404 });
+
+    return new HttpResponse(JSON.stringify(user));
   }),
 
   http.patch("/api/update-profile", async (resolver) => {
