@@ -42,13 +42,15 @@ function UserProfile(props: IUserProfileProps) {
   if (userData) {
     return (
       <div className="profile_view">
-        <Image
-          src={userData.picture}
-          alt={`profile image of ${userData.name}`}
-          width="250"
-          height="250"
-          imageClassName="profile_picture"
-        />
+        <div className="profile_picture_wrap">
+          <Image
+            src={userData.picture}
+            alt={`profile image of ${userData.name}`}
+            width="250"
+            height="250"
+            imageClassName="profile_picture"
+          />
+        </div>
         <h4>{userData.name}</h4>
         <p>{userData.bio}</p>
         <p>{userData.email}</p>

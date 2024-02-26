@@ -18,6 +18,13 @@
 
 .profile_view {
   margin-top: 10px;
+  width: 400px;
+  max-width: 100%;
+}
+
+.profile_picture_wrap {
+  display: flex;
+  justify-content: center;
 }
 
 .profile_picture {
