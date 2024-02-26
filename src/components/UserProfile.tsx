@@ -54,6 +54,7 @@ function UserProfile(props: IUserProfileProps) {
         <Button
           label="Edit"
           icon="pi pi-pencil"
+          data-testid="edit_button"
           onClick={() => setVisibilityEditModal((prev) => !prev)}
         />
         {/* modal, it won't appear as long as visible = false  */}
@@ -70,7 +71,9 @@ function UserProfile(props: IUserProfileProps) {
             hideModal={hideModal}
             formActions={
               <div className="edit_form_modal_actions">
-                <Button type="submit">Save</Button>
+                <Button type="submit" data-testid="save_form">
+                  Save
+                </Button>
                 <Button severity="danger" onClick={hideModal}>
                   Cancel
                 </Button>
@@ -155,7 +158,7 @@ function DialogContent(props: IDialogContentProps) {
         mutate(values);
       }}
     >
-      <Form className="edit_form">
+      <Form className="edit_form" data-testid="edit_form">
         <div className="form_field_wrap">
           <label className="field_label" htmlFor="name">
             Name*
