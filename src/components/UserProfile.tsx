@@ -60,7 +60,7 @@ function UserProfile(props: IUserProfileProps) {
         <Dialog
           header="Edit profile data"
           visible={visibilityEditModal}
-          style={{ width: "50vw" }}
+          className="edit_user_form_modal"
           onHide={hideModal}
           draggable={false}
         >
@@ -106,14 +106,14 @@ const profileFormValidationSchema = yup.object().shape({
       (val) => val.trim().length === val.length
     ) // edge case where yup treats "     ", "  a  " as valid
     .min(2)
-    .max(25),
+    .max(31),
   email: yup
     .string()
     .email()
     .min(4)
-    .max(35)
+    .max(63)
     .required("email must not be empty"),
-  bio: yup.string().max(127), // bio is not required
+  bio: yup.string().max(255), // bio is not required
 });
 
 interface IDialogContentProps {
@@ -155,10 +155,10 @@ function DialogContent(props: IDialogContentProps) {
         mutate(values);
       }}
     >
-      <Form>
+      <Form className="edit_form">
         <div className="form_field_wrap">
           <label className="field_label" htmlFor="name">
-            Name
+            Name*
           </label>
           <Field name="name" component={InputComp} className="form_field" />
           <ErrorMessage
@@ -170,7 +170,7 @@ function DialogContent(props: IDialogContentProps) {
 
         <div className="form_field_wrap">
           <label className="field_label" htmlFor="email">
-            Email
+            Email*
           </label>
           <Field
             type="email"
@@ -190,7 +190,12 @@ function DialogContent(props: IDialogContentProps) {
           <label className="field_label" htmlFor="bio">
             Bio
           </label>
-          <Field name="bio" component={TextareaComp} className="form_field" />
+          <Field
+            name="bio"
+            component={TextareaComp}
+            className="form_field"
+            rows={4}
+          />
           <ErrorMessage component="p" name="bio" className="form_field_error" />
         </div>
         {formActions}

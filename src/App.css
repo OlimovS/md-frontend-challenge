@@ -1,19 +1,32 @@
+/* 
+ * Select component css
+ */
+
 .user_select {
   max-width: 100%;
   width: 400px;
+}
+
+/* 
+ * Profile view css
+ */
+
+.profile_view_wrap {
+  display: flex;
+  justify-content: center;
+}
+
+.profile_view {
+  margin-top: 10px;
 }
 
 .profile_picture {
   border-radius: 50%;
 }
 
-.profile_view {
-  max-width: 100%;
-  width: 400px;
-  margin-right: auto;
-  margin-left: auto;
-  margin-top: 10px;
-}
+/* 
+ * Edit form css
+ */
 
 .form_field {
   width: 100%;
@@ -37,8 +50,21 @@
   font-size: 0.8em;
 }
 
+.edit_form {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+/* 
+ * Edit form modal css
+ */
+
 .edit_form_modal_actions {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 20px;
+}
+
+.edit_user_form_modal {
+  width: 350px;
+  max-width: 95%;
 }

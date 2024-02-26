@@ -72,7 +72,11 @@ function App() {
         />
       )}
 
-      {selectedUser && <UserProfile id={selectedUser.code} />}
+      {selectedUser && (
+        <div className="profile_view_wrap">
+          <UserProfile id={selectedUser.code} />
+        </div>
+      )}
     </div>
   );
 }
