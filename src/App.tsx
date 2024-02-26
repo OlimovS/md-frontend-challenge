@@ -26,13 +26,34 @@ function App() {
   const [selectedUser, setSelectedUser] = useState<ISelectOption>();
 
   const {
-    data: emails,
+    data: userEmailAndIdList,
     isError,
     isLoading,
     error,
   } = useQuery({
     queryKey: [USER_EMAILS_QUERY_KEY],
     queryFn: getUserEmails,
+    // list is same as userEmailAndIdList. But onSuccess lets us update selectedUser whenever we get the list from the server
+    onSuccess: (list) => {
+      //  in case selectedUser is holding old user email, we need to update it
+      setSelectedUser((prevSelected): ISelectOption | undefined => {
+        let user;
+        // if there is prevSelected and
+        // if the same user is in the list and
+        // if email needs updating
+        // update email in the selectedUser
+        if (
+          prevSelected &&
+          (user = list.find((u) => u.id === prevSelected.code)) &&
+          user.email !== prevSelected.name
+        ) {
+          return { ...prevSelected, name: user.email };
+        }
+
+        // otherwise return prevSelected
+        return prevSelected;
+      });
+    },
   });
 
   if (isLoading) return <p>Loading</p>;
@@ -40,11 +61,11 @@ function App() {
 
   return (
     <div>
-      {emails && (
+      {userEmailAndIdList && (
         <Dropdown
           value={selectedUser}
           onChange={(e) => setSelectedUser(e.value)}
-          options={getSelectOptions(emails)}
+          options={getSelectOptions(userEmailAndIdList)}
           optionLabel="name"
           placeholder="Select a user"
           className="user_select"
