@@ -97,18 +97,23 @@ export default UserProfile;
 
 // user edit form validation schema
 const profileFormValidationSchema = yup.object().shape({
-  name: yup.string().min(2).max(25).required("Name must not be empty"),
+  name: yup
+    .string()
+    .required("Name must not be empty")
+    .test(
+      "space_characters",
+      "name cannot have leading and ending space characters",
+      (val) => val.trim().length === val.length
+    ) // edge case where yup treats "     ", "  a  " as valid
+    .min(2)
+    .max(25),
   email: yup
     .string()
     .email()
     .min(4)
     .max(35)
-    .required("Email must not be empty"),
-  bio: yup
-    .string()
-    .min(2)
-    .max(127)
-    .required("Bio must be between 2 and 127 characters"),
+    .required("email must not be empty"),
+  bio: yup.string().max(127), // bio is not required
 });
 
 interface IDialogContentProps {
