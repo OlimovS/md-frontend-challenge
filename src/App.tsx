@@ -69,11 +69,12 @@ function App() {
           optionLabel="name"
           placeholder="Select a user"
           className="user_select"
+          data-testid="user_select_list"
         />
       )}
 
       {selectedUser && (
-        <div className="profile_view_wrap">
+        <div className="profile_view_wrap" data-testid="profile_view_wrap">
           <UserProfile id={selectedUser.code} />
         </div>
       )}
