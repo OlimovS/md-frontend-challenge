@@ -11,7 +11,11 @@ import { Button } from "primereact/button";
 // custom
 import { IUserEditableData, IUserPublicData } from "../helpers/types";
 import { get_error_message, get_user_editable_data } from "../helpers/utils";
-import { USER_EMAILS_QUERY_KEY, USER_QUERY_KEY } from "../helpers/constants";
+import {
+  UI_TEST_IDS,
+  USER_EMAILS_QUERY_KEY,
+  USER_QUERY_KEY,
+} from "../helpers/constants";
 import { editUserData, getUserData } from "../helpers/api";
 
 interface IUserProfileProps {
@@ -41,7 +45,7 @@ function UserProfile(props: IUserProfileProps) {
 
   if (userData) {
     return (
-      <div className="profile_view">
+      <div className="profile_view" data-testid={UI_TEST_IDS.user_profile_view}>
         <div className="profile_picture_wrap">
           <Image
             src={userData.picture}
@@ -52,12 +56,12 @@ function UserProfile(props: IUserProfileProps) {
           />
         </div>
         <h4>{userData.name}</h4>
-        <p>{userData.bio}</p>
-        <p>{userData.email}</p>
+        <p data-testid={UI_TEST_IDS.user_name}>{userData.bio}</p>
+        <p data-testid={UI_TEST_IDS.user_email}>{userData.email}</p>
         <Button
           label="Edit"
           icon="pi pi-pencil"
-          data-testid="edit_button"
+          data-testid={UI_TEST_IDS.edit_button}
           onClick={() => setVisibilityEditModal((prev) => !prev)}
         />
         {/* modal, it won't appear as long as visible = false  */}
@@ -74,10 +78,18 @@ function UserProfile(props: IUserProfileProps) {
             hideModal={hideModal}
             formActions={
               <div className="edit_form_modal_actions">
-                <Button type="submit" data-testid="save_form">
+                <Button
+                  type="submit"
+                  data-testid={UI_TEST_IDS.save_form_button}
+                >
                   Save
                 </Button>
-                <Button type="button" severity="danger" onClick={hideModal}>
+                <Button
+                  type="button"
+                  severity="danger"
+                  onClick={hideModal}
+                  data-testid={UI_TEST_IDS.cancel_form_button}
+                >
                   Cancel
                 </Button>
               </div>
@@ -161,7 +173,7 @@ function DialogContent(props: IDialogContentProps) {
         mutate(values);
       }}
     >
-      <Form className="edit_form" data-testid="edit_form">
+      <Form className="edit_form" data-testid={UI_TEST_IDS.edit_user_form}>
         <div className="form_field_wrap">
           <label className="field_label" htmlFor="name">
             Name*
@@ -181,7 +193,7 @@ function DialogContent(props: IDialogContentProps) {
           <Field
             type="email"
             name="email"
-            placeholder="Email"
+            placeholder={UI_TEST_IDS.email_placeholder}
             component={InputComp}
             className="form_field"
           />

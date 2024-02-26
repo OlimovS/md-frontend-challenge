@@ -4,6 +4,7 @@ import { QueryClient, QueryClientProvider } from "react-query";
 
 import UserProfile from "../../components/UserProfile";
 import { users } from "../../mock-server/data";
+import { UI_TEST_IDS } from "../../helpers/constants";
 
 const queryClient = new QueryClient();
 
@@ -26,17 +27,19 @@ describe("UserProfile component", () => {
     expect(await screen.findByText(user.name)).toBeInTheDocument();
 
     // check if edit button is in the document.
-    const edit_button = screen.getByTestId("edit_button");
+    const edit_button = screen.getByTestId(UI_TEST_IDS.edit_button);
     expect(edit_button).toBeInTheDocument();
 
     // clicking edit button should open the modal
     fireEvent.click(edit_button);
 
-    const form_elem = screen.getByTestId("edit_form");
+    const form_elem = screen.getByTestId(UI_TEST_IDS.edit_user_form);
     expect(form_elem).toBeInTheDocument();
 
     // let's change the email and see if it changes
-    const email_elem = screen.getByPlaceholderText("Email");
+    const email_elem = screen.getByPlaceholderText(
+      UI_TEST_IDS.email_placeholder
+    );
     const new_email = "test.a1111@email.com";
     fireEvent.change(email_elem, {
       target: { value: new_email },

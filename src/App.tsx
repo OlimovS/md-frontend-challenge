@@ -4,7 +4,7 @@ import { useQuery } from "react-query";
 // custom created (components | functions | css) imports
 import UserProfile from "./components/UserProfile";
 import { getUserEmails } from "./helpers/api";
-import { USER_EMAILS_QUERY_KEY } from "./helpers/constants";
+import { UI_TEST_IDS, USER_EMAILS_QUERY_KEY } from "./helpers/constants";
 import { IUserswithIdandEmail } from "./helpers/types";
 import "./App.css";
 import { get_error_message } from "./helpers/utils";
@@ -35,7 +35,6 @@ function App() {
     queryFn: getUserEmails,
     // list is same as userEmailAndIdList. But onSuccess lets us update selectedUser whenever we get the list from the server
     onSuccess: (list) => {
-      console.log("refetched");
       //  in case selectedUser is holding old user email, we need to update it
       setSelectedUser((prevSelected): ISelectOption | undefined => {
         let user;
@@ -70,12 +69,15 @@ function App() {
           optionLabel="name"
           placeholder="Select a user"
           className="user_select"
-          data-testid="user_select_list"
+          data-testid={UI_TEST_IDS.user_select_dropdown}
         />
       )}
 
       {selectedUser && (
-        <div className="profile_view_wrap" data-testid="profile_view_wrap">
+        <div
+          className="profile_view_wrap"
+          data-testid={UI_TEST_IDS.profile_view_wrap}
+        >
           <UserProfile id={selectedUser.code} />
         </div>
       )}
