@@ -76,7 +76,7 @@ export const users: Array<IUserFullData> = [
   {
     id: "r2wE9uY5",
     name: "Necati",
-    email: "necati.nalbantoğlu@example.com",
+    email: "necati.nalbantoglu@example.com",
     picture: "men/8.jpg",
     bio: "Tech geek with a passion for coding and building innovative solutions.",
     password: "Ck8Fj3",
