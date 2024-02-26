@@ -46,6 +46,7 @@ function UserProfile(props: IUserProfileProps) {
           src={userData.picture}
           alt={`profile image of ${userData.name}`}
           width="250"
+          height="250"
           imageClassName="profile_picture"
         />
         <h4>{userData.name}</h4>
