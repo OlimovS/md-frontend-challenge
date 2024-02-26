@@ -35,6 +35,7 @@ function App() {
     queryFn: getUserEmails,
     // list is same as userEmailAndIdList. But onSuccess lets us update selectedUser whenever we get the list from the server
     onSuccess: (list) => {
+      console.log("refetched");
       //  in case selectedUser is holding old user email, we need to update it
       setSelectedUser((prevSelected): ISelectOption | undefined => {
         let user;

@@ -74,7 +74,7 @@ function UserProfile(props: IUserProfileProps) {
                 <Button type="submit" data-testid="save_form">
                   Save
                 </Button>
-                <Button severity="danger" onClick={hideModal}>
+                <Button type="button" severity="danger" onClick={hideModal}>
                   Cancel
                 </Button>
               </div>
