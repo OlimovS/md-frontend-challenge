@@ -3,7 +3,7 @@ import { render, screen, waitFor, fireEvent } from "@testing-library/react";
 import { QueryClient, QueryClientProvider } from "react-query";
 
 import App from "../../App";
-import { users } from "../../mocks/data";
+import { users } from "../../mock-server/data";
 
 const queryClient = new QueryClient();
 

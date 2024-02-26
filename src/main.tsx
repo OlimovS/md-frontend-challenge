@@ -21,7 +21,7 @@ const app_root = (
 
 // dynamically importing the worker and starting it
 async function enableMocking() {
-  const { worker } = await import("./mocks/browser");
+  const { worker } = await import("./mock-server/browser.ts");
 
   return worker.start();
 }
