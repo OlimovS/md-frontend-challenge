@@ -4,7 +4,7 @@
 
 This project aims to develop a user profile management for a social networking application. The project allow users to view and edit their personal information.
 
-## Design choices
+## Choices made
 
 1. Vitejs as dev tool - chosen because of its speed and simplicity of configuration.
 
